@@ -23,14 +23,17 @@
         FeatureLayer
       ) {
 
-    var map = new Map ("mapDiv", {
-      basemap: "dark-gray-vector",
-      center: [-78.8465, 35.8955],
-      zoom: 10
-    });
-  
-    var lovers = new FeatureLayer("http://services7.arcgis.com/R3S9dB2yQtZQqVhA/arcgis/rest/services/Lovers/FeatureServer");
-    map.addLayer(lovers);
+      var map = new Map ("mapDiv", {
+        basemap: "dark-gray-vector",
+        center: [-80.8440, 35.9522],
+        zoom: 5
+      });
+
+      var lovers = new FeatureLayer("https://services7.arcgis.com/R3S9dB2yQtZQqVhA/arcgis/rest/services/Lovers/FeatureServer/0");
+      map.addLayer(lovers);
+
+      var haters = new FeatureLayer("https://services7.arcgis.com/R3S9dB2yQtZQqVhA/arcgis/rest/services/Haters/FeatureServer/0");
+      map.addLayer(haters);
     });
   </script>
   
@@ -61,7 +64,7 @@
     }    
     /* Set gray background color, white text and some padding */
     footer {
-      background-color: #555;
+      background-color: #555555;
       color: white;
       padding: 15px;
     }
