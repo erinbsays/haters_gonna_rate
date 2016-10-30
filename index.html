@@ -15,6 +15,7 @@
         "esri/Color",
         "esri/symbols/SimpleMarkerSymbol",
         "esri/renderers/SimpleRenderer",
+        "esri/PopupTemplate",
         "esri/InfoTemplate",
         "dojo/domReady!"
       ],
@@ -24,6 +25,7 @@
         Color,
         SimpleMarkerSymbol,
         SimpleRenderer,
+        PopupTemplate,
         InfoTemplate
       ) {
 
@@ -39,9 +41,17 @@
         var loversMarker = new SimpleMarkerSymbol("solid", 10, null, purple);
         var loversRenderer = new SimpleRenderer(loversMarker);
         loversCSV.setRenderer(loversRenderer);
-        var loversTemplate = new InfoTemplate("About", "Shop: ${Shop}<br>Address: ${Address}<br>Website: ${Website}");
-        loversCSV.setInfoTemplate(loversTemplate);
-        map.addLayer(loversCSV);
+      
+        var loversPopupTemplate = new PopupTemplate ({
+          title: “About”,
+          fieldInfos: [
+            { fieldName: “Shop”, visible: true, label: “Shop: “},
+            { fieldName: “Address”, visible: true, label: “Address: “},
+            ( fieldName: “Website”, visible: true, label: “Website: “}
+          ]
+          });
+      loversCSV.setInfoTemplate(loversPopupTemplate);
+      map.addLayer(loversCSV);
       
       hatersCSV = new CSVLayer("Haters.csv", {
         });
