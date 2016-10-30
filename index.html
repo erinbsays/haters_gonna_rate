@@ -16,7 +16,7 @@
         "esri/symbols/SimpleMarkerSymbol",
         "esri/renderers/SimpleRenderer",
         "esri/dijit/PopupTemplate"
-        "esri/InfoTemplate",
+        "esri/dijit/InfoTemplate",
         "dojo/domReady!"
       ],
       function(
@@ -51,18 +51,7 @@
           ]
           });
       loversCSV.setInfoTemplate(loversPopupTemplate);
-      map.addLayer(loversCSV);
-      
-      hatersCSV = new CSVLayer("Haters.csv", {
-        });
-        var green = new Color([62, 178, 0, 0.8]);
-        var hatersMarker = new SimpleMarkerSymbol("solid", 10, null, green);
-        var hatersRenderer = new SimpleRenderer(hatersMarker);
-        hatersCSV.setRenderer(hatersRenderer);
-        var hatersTemplate = new InfoTemplate("About", "Shop: ${Shop}<br>Address: ${Address}<br>Website: ${Website}");
-        hatersCSV.setInfoTemplate(hatersTemplate);
-        map.addLayer(hatersCSV);
-      
+      map.addLayer(loversCSV);      
     });
   </script>
   
