@@ -1,8 +1,8 @@
 <?php
 
 // configure
-$from = 'Haters Gonna Rate <hater.report@trashphalt.com>';
-$sendTo = 'Haters Gonna Rate <hater.report@trashphalt.com>';
+$from = 'Haters Gonna Rate <demo@domain.com>';
+$sendTo = 'Haters Gonna Rate <demo@domain.com>';
 $subject = 'New message from contact form';
 $fields = array('name' => 'Name', 'email' => 'Email', 'shopname' => 'Shop Name', 'location' => 'Shop Location', 'message' => 'Message'); // array variable name => Text to appear in email
 $okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
