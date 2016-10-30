@@ -65,8 +65,22 @@ require([
     
     .body {
       background-color: #660066
+      color: #9d9d9d;
     }
-  
+
+    .body a:link {
+    color: #3eb200;
+    text-decoration: none;
+    }
+
+    .body a:hover {
+    color: white;
+    }
+    
+    .body a:visited {
+    color: #3eb200;
+    text-decoration: none;
+    }    
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
@@ -108,6 +122,11 @@ require([
     <div class="row content">
       <div class="col-sm-10 col-sm-offset-1">
         <div id='mapDiv'></div>
+      </div>
+    </div>
+    <div class="row content">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
+        <p>This map displays comic shops submitted to <a href="http://haterfreewednesdays.tumblr.com">Hater Free Wednesdays</a>. Click on a point for more information about the business.</p>
       </div>
     </div>
   </div>
