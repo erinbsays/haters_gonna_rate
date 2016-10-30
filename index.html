@@ -39,7 +39,7 @@
         var loversMarker = new SimpleMarkerSymbol("solid", 10, null, purple);
         var loversRenderer = new SimpleRenderer(loversMarker);
         loversCSV.setRenderer(loversRenderer);
-        var loversTemplate = new InfoTemplate("About", "Shop: ${Shop}<br>Address: ${Address}, Website: ${Website}");
+        var loversTemplate = new InfoTemplate("About", "Shop: ${Shop}<br>Address: ${Address}<br>Website: ${Website}");
         loversCSV.setInfoTemplate(loversTemplate);
         map.addLayer(loversCSV);
       
