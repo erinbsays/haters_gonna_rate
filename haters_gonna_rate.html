@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Haters Gonna Rate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Step 1. Add CSS for the mapping components -->
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.13/esri/css/esri.css">   
+    <link rel="stylesheet" type="text/css" href="http://esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">   
+    <style type="text/css">
+      #mapDiv {
+        min-height: 100px; 
+        max-height: 1000px; 
+      }
+    </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+  
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height:auto;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Map</a></li>
+        <li><a href="#">Submit a Shop</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-10 text-left">
+      <div class="span8 offset2" id='mapDiv'></div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Created by Erin Black for HackNC Fall 2016</p>
+</footer>
+
+ <!-- Step 3. Add JS to load the responsive map -->
+    <script type="text/javascript">
+        var package_path = "//esri.github.com/bootstrap-map-js/src/js";
+        var dojoConfig = {
+            packages: [{
+                name: "application",
+                location: package_path
+            }]
+        };
+    </script>
+    <script src="//js.arcgis.com/3.13compact"></script>
+    <script>
+        require(["esri/map", "application/bootstrapmap", "dojo/domReady!"], 
+          function(Map, BootstrapMap) {
+            // Get a reference to the ArcGIS Map class
+            var map = BootstrapMap.create("mapDiv",{
+              basemap:"national-geographic",
+              center:[-79.05,35.91],
+              zoom:5
+            });
+        });
+    </script>
+
+    <!-- jQuery (for Bootstrap's JavaScript plugins) -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Include all  plugins or individual files as needed -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
