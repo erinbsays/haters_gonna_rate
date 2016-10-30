@@ -7,54 +7,32 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <!-- Step 1. Add CSS for the mapping components -->
-    <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">  
-    <link rel="stylesheet" type="text/css" href="http://esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">   
-    <style type="text/css">
-      #mapDiv {
-        min-height: 100px; 
-        max-height: 1000px; 
-        
-      }
-    </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">    
 
-  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  <script type="text/javascript">
-        var package_path = "//esri.github.com/bootstrap-map-js/src/js";
-        var dojoConfig = {
-            packages: [{
-                name: "application",
-                location: package_path
-            }]
-        };
-   </script>
-   <script src="https://js.arcgis.com/3.18/"></script>
-  
+  <script src="https://js.arcgis.com/3.18/"></script>
   <script>              
-require([
-    "esri/map",
-    "application/bootstrapmap",
-    "esri/layers/FeatureLayer",
-    "dojo/domReady!"
-  ],
-  function(
-    Map,
-    BootstrapMap,
-    FeatureLayer
-  ) {
+    require([
+        "esri/map",
+        "esri/layers/FeatureLayer",
+        "dojo/domReady!"
+      ],
+      function(
+        Map,
+        FeatureLayer
+      ) {
 
-    var map = BootstrapMap.create("mapDiv", {
-      basemap: "streets",
+    var map = new Map ("mapDiv", {
+      basemap: "dark-gray-vector",
       center: [-78.8465, 35.8955],
       zoom: 10
     });
-
-
-
-  });
-</script>
+  
+    var lovers = new FeatureLayer("http://services7.arcgis.com/R3S9dB2yQtZQqVhA/arcgis/rest/services/Lovers/FeatureServer");
+    map.addLayer(lovers);
+    });
+  </script>
   
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */
@@ -81,7 +59,7 @@ require([
     color: #3eb200;
     text-decoration: none;
     }    
-    /* Set black background color, white text and some padding */
+    /* Set gray background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
