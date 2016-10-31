@@ -38,18 +38,11 @@
         zoom: 5
       });
       
-      var loversPopupTemplate = new PopupTemplate ({
-          title: "About",
-          fieldInfos: [
-            { fieldName: "Shop", visible: true, label: "Shop: "},
-            { fieldName: "Address", visible: true, label: "Address: "},
-            { fieldName: "Website", visible: true, label: "Website: "}
-          ]
-          });
+      var infoTemplate = new InfoTemplate("${Name}", "Shop:  ${Shop} <br> Address: {Address} <br> Website : ${Website} );
       
       loversCSV = new CSVLayer("Lovers.csv", {
         mode: CSVLayer.MODE_ONDEMAND,
-        infoTemplate: loversPopupTemplate
+        infoTemplate: infoTemplate
         });
         var purple = new Color([178, 18, 178, 0.5]);
         var loversMarker = new SimpleMarkerSymbol("solid", 10, null, purple);
