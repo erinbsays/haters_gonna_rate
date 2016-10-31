@@ -15,7 +15,6 @@
         "esri/Color",
         "esri/symbols/SimpleMarkerSymbol",
         "esri/renderers/SimpleRenderer",
-        "esri/dijit/PopupTemplate"
         "esri/InfoTemplate",
         "dojo/parser",
         "dojo/domReady!"
@@ -27,29 +26,26 @@
         SimpleMarkerSymbol,
         SimpleRenderer,
         InfoTemplate
-        parser
       ) {
         
-      parser.parse();
-
       var map = new Map ("map", {
         basemap: "gray-vector",
         center: [-80.8440, 35.9522],
         zoom: 5
       });
       
-      var infoTemplate = new InfoTemplate("${Name}", "Shop:  ${Shop} <br> Address: {Address} <br> Website : ${Website} ");
+      var infoTemplate = new InfoTemplate("About", "${*}");
       
-      loversCSV = new CSVLayer("Lovers.csv", {
-        mode: CSVLayer.MODE_ONDEMAND,
-        infoTemplate: infoTemplate
+      var loversCSV = new CSVLayer("Lovers.csv", {
         });
         var purple = new Color([178, 18, 178, 0.5]);
         var loversMarker = new SimpleMarkerSymbol("solid", 10, null, purple);
         var loversRenderer = new SimpleRenderer(loversMarker);
-        loversCSV.setRenderer(loversRenderer);
+      loversCSV.setRenderer(loversRenderer);
+      loversCSV.setInfoTemplate(infoTemplate);
              
-      map.addLayer(loversCSV);      
+      map.addLayer(loversCSV);
+       
     });
   </script>
   
