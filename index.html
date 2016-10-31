@@ -46,7 +46,7 @@
         SimpleFillSymbol
       ) {
 
-      var fill = new SimpleFillSymbol("solid", null, new Color("#A4CE67"));
+      var fill = new SimpleFillSymbol("solid", null, new Color("#555555"));
       var popup = new Popup({
             fillSymbol: fill,
             titleInBody: false
@@ -62,27 +62,61 @@
       });
          
       var loversPopupTemplate = new PopupTemplate ({
-          title: "About",
+          title: "Lovers",
           fieldInfos: [
             { fieldName: "Shop", visible: true, label: "Shop: "},
             { fieldName: "Address", visible: true, label: "Address: "},
             { fieldName: "Website", visible: true, label: "Website: "}
           ]
           });
-      
+        
       var loversCSV = new CSVLayer("Lovers.csv", {
         });
-        var purple = new Color([178, 18, 178, 0.5]);
+        var purple = new Color([178, 18, 178, 0.8]);
         var loversMarker = new SimpleMarkerSymbol("solid", 10, null, purple);
         var loversRenderer = new SimpleRenderer(loversMarker);
         loversCSV.setRenderer(loversRenderer);
             
       loversCSV.setInfoTemplate(loversPopupTemplate);
       map.addLayer(loversCSV);      
+      
+      var hatersPopupTemplate = new PopupTemplate ({
+          title: "Haters",
+          fieldInfos: [
+            { fieldName: "Shop", visible: true, label: "Shop: "},
+            { fieldName: "Address", visible: true, label: "Address: "},
+            { fieldName: "Website", visible: true, label: "Website: "}
+          ]
+          });
+      var hatersCSV = new CSVLayer("Haters.csv", {
+          });
+          var green = new Color([62, 178, 0, 0.8]);
+          var hatersMarker = new SimpleMarkerSymbol("solid", 10, null, green);
+          var hatersRenderer = new SimpleRenderer(hatersMarker);
+          hatersCSV.setRenderer(hatersRenderer);
+      
+      hatersCSV.setInfoTemplate(hatersPopupTemplate);
+      map.addLayer(hatersCSV);     
     });
   </script>
   
   <style>
+      /* Change color of icons to match bar chart and selection symbol */
+      .esriPopup.dark div.titleButton, 
+      .esriPopup.dark div.titlePane .title,
+      .esriPopup.dark div.actionsPane .action {
+        color: #B212B2;
+      }
+      /* Additional customizations */
+      .esriPopup.dark .esriPopupWrapper {
+        border: none;
+      }
+      .esriPopup .contentPane {
+        text-align: center;
+      }
+      .esriViewPopup .gallery {
+        margin: 0 auto;
+      }
     /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
@@ -95,7 +129,7 @@
     }
 
     .body a:link {
-    color: #3eb200;
+    color: #B212B2;
     text-decoration: none;
     }
 
