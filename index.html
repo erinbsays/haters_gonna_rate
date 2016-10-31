@@ -15,8 +15,8 @@
         "esri/Color",
         "esri/symbols/SimpleMarkerSymbol",
         "esri/renderers/SimpleRenderer",
-        "esri/dijit/PopupTemplate"
-        "esri/dijit/InfoTemplate",
+        "esri/PopupTemplate"
+        "esri/InfoTemplate",
         "dojo/domReady!"
       ],
       function(
@@ -29,7 +29,7 @@
         InfoTemplate
       ) {
 
-      var map = new Map ("mapDiv", {
+      var map = new Map ("map", {
         basemap: "gray-vector",
         center: [-80.8440, 35.9522],
         zoom: 5
@@ -43,11 +43,11 @@
         loversCSV.setRenderer(loversRenderer);
       
         var loversPopupTemplate = new PopupTemplate ({
-          title: “About”,
+          title: "About",
           fieldInfos: [
-            { fieldName: “Shop”, visible: true, label: “Shop: “},
-            { fieldName: “Address”, visible: true, label: “Address: “},
-            { fieldName: “Website”, visible: true, label: “Website: “}
+            { fieldName: "Shop", visible: true, label: "Shop: "},
+            { fieldName: "Address", visible: true, label: "Address: "},
+            { fieldName: "Website", visible: true, label: "Website: "}
           ]
           });
       loversCSV.setInfoTemplate(loversPopupTemplate);
@@ -131,7 +131,7 @@
     </div>
     <div class="row content">
       <div class="col-sm-10 col-sm-offset-1">
-        <div id='mapDiv'></div>
+        <div id='map'></div>
       </div>
     </div>
   </div>
