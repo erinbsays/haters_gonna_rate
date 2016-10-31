@@ -9,39 +9,45 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://js.arcgis.com/3.18/"></script>
-  <script>              
+  <script> 
+    var map;
+    
     require([
-        "esri/map", 
-        "esri/layers/CSVLayer",
+        "dojo/dom-construct",
+        "dojo/dom-class",
+        "dojo/parser",
         "esri/Color",
-        "esri/symbols/SimpleMarkerSymbol",
-        "esri/renderers/SimpleRenderer",
-        "esri/symbols/SimpleFillSymbol",
+        
         "esri/dijit/Popup",
         "esri/dijit/PopupTemplate",
         "esri/InfoTemplate",
-        "dojo/dom-class", 
-        "dojo/dom-construct", 
-        "dojo/on",
+        "esri/map", 
+        "esri/layers/CSVLayer",
+
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/renderers/SimpleRenderer",
+        "esri/symbols/SimpleFillSymbol",
+
         "dojo/domReady!"
       ],
       function(
-        Map,
-        CSVLayer,
+        domConstruct,
+        domClass,
+        parser,
         Color,
-        SimpleMarkerSymbol,
-        SimpleRenderer,
-        SimpleFillSymbol,
         Popup,
         PopupTemplate,
         InfoTemplate,
-        domClass, 
-        domConstruct,
-        on,
+        Map,
+        CSVLayer,
+        
+        SimpleMarkerSymbol,
+        SimpleRenderer,
+        SimpleFillSymbol
       ) {
 
       var fill = new SimpleFillSymbol("solid", null, new Color("#A4CE67"));
-        var popup = new Popup({
+      var popup = new Popup({
             fillSymbol: fill,
             titleInBody: false
         }, domConstruct.create("div"));
@@ -51,9 +57,10 @@
       var map = new Map ("map", {
         basemap: "gray-vector",
         center: [-80.8440, 35.9522],
-        zoom: 5
+        zoom: 5,
+        infoWindow: popup
       });
-      
+         
       var loversPopupTemplate = new PopupTemplate ({
           title: "About",
           fieldInfos: [
