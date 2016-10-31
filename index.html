@@ -15,7 +15,7 @@
         "esri/Color",
         "esri/symbols/SimpleMarkerSymbol",
         "esri/renderers/SimpleRenderer",
-        "esri/PopupTemplate"
+        "esri/dijit/PopupTemplate"
         "esri/InfoTemplate",
         "dojo/domReady!"
       ],
@@ -35,14 +35,7 @@
         zoom: 5
       });
       
-      var loversCSV = new CSVLayer("Lovers.csv", {
-        });
-        var purple = new Color([178, 18, 178, 0.5]);
-        var loversMarker = new SimpleMarkerSymbol("solid", 10, null, purple);
-        var loversRenderer = new SimpleRenderer(loversMarker);
-        loversCSV.setRenderer(loversRenderer);
-      
-        var loversPopupTemplate = new PopupTemplate ({
+      var loversPopupTemplate = new PopupTemplate ({
           title: "About",
           fieldInfos: [
             { fieldName: "Shop", visible: true, label: "Shop: "},
@@ -50,6 +43,14 @@
             { fieldName: "Website", visible: true, label: "Website: "}
           ]
           });
+      
+      var loversCSV = new CSVLayer("Lovers.csv", {
+        });
+        var purple = new Color([178, 18, 178, 0.5]);
+        var loversMarker = new SimpleMarkerSymbol("solid", 10, null, purple);
+        var loversRenderer = new SimpleRenderer(loversMarker);
+        loversCSV.setRenderer(loversRenderer);
+            
       loversCSV.setInfoTemplate(loversPopupTemplate);
       map.addLayer(loversCSV);      
     });
