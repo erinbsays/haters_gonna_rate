@@ -1,106 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>About</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <head>
+    <title>About</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./about.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    .body {
-      background-color: #330033
-      color: #9d9d9d;
-    }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    .about a:link {
-    color: #3eb200;
-    text-decoration: none;
-    }
+  </head>
+  <body>
 
-    .about a:hover {
-    color: white;
-    }
-    
-    .about a:visited {
-    color: #3eb200;
-    text-decoration: none;
-    }    
-    
-    .about {
-    background-color: #330033;
-    color: #9d9d9d;
-    padding: 10px;
-    }
-    
-    html, body {
-    height: 100%
-    }
-    
-    /* Set gray background color, white text and some padding */
-    footer {
-      background-color: #555555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .row.content {height:auto;}
-    }
-  </style>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Map</a></li>
+            <li><a href="submit.html">Submit a Shop</a></li>
+            <li class="active"><a href="#">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-</head>
-<body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Map</a></li>
-        <li><a href="submit.html">Submit a Shop</a></li>
-        <li class="active"><a href="#">About</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-  
-<body class="about">  
-  <div class="container-fluid">
-    <div class="row content">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h1>About</h1>
-        <p>This site is designed to be an easy, device-friendly way to check whether a comic shop has been reported as full of haters. It works by taking data reported to Hater Free Wednesdays and layering it over a map created with ArcGIS. The submission form does not go to Hater Free Wednesdays. New submissions will be added as soon possible.</p>
-        <p>This site was created in October 2016 for HackNC using Esri, data from <a href="http://haterfreewednesdays.tumblr.com">Hater Free Wednesdays</a>, and GitHub.</p>
+    <div class="about">  
+      <div class="container-fluid">
+        <div class="row content">
+          <div class="col-sm-8 col-sm-offset-2">
+            <h1>About</h1>
+            <p>This site is designed to be an easy, device-friendly way to check whether a comic shop has been reported as full of haters. It works by taking data reported to Hater Free Wednesdays and layering it over a map created with ArcGIS. The submission form does not go to Hater Free Wednesdays. New submissions will be added as soon possible.</p>
+            <p>This site was created in October 2016 for HackNC using Esri, data from <a href="http://haterfreewednesdays.tumblr.com">Hater Free Wednesdays</a>, and GitHub.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</body>
 
-<footer class="container-fluid text-center">
-  <p>Created by Erin Black for HackNC Fall 2016</p>
-</footer>
+    <footer class="container-fluid text-center">
+      <p>Created by Erin Black for HackNC Fall 2016</p>
+    </footer>
 
     <!-- jQuery (for Bootstrap's JavaScript plugins) -->
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <!-- Include all  plugins or individual files as needed -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-</body>
+  </body>
 </html>

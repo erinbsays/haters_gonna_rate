@@ -1,0 +1,40 @@
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.body {
+  background-color: #330033
+  color: #9d9d9d;
+}
+
+.body a:link {
+  color: #B212B2;
+  text-decoration: none;
+}
+
+.body a:hover {
+  color: white;
+}
+
+.body a:visited {
+  color: #3eb200;
+  text-decoration: none;
+}    
+
+html, body{
+  height: 100%
+}
+
+/* Set gray background color, white text and some padding */
+footer {
+  background-color: #555555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .row.content {height:auto;}
+}
