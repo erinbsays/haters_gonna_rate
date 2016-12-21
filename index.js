@@ -32,7 +32,30 @@ function(
   SimpleFillSymbol
   ) {
 
-  var fill = new SimpleFillSymbol("solid", null, new Color("#555555"));
+  let PURPLE = new Color([178, 18, 178, 0.8]);
+  let GRAY5 = new Color("#555555");
+  let GREEN = new Color([62, 178, 0, 0.8]);
+  let MAP_CENTER = [-80.8440, 35.9522];
+  let fields = [
+    { fieldName: "Shop", visible: true, label: "Shop: "},
+    { fieldName: "Address", visible: true, label: "Address: "},
+    { fieldName: "Website", visible: true, label: "Website: "}
+  ]
+
+  let types = [
+    {
+      "name": "./Lovers",
+      "csv": "Lovers.csv",
+      "color": PURPLE
+    },
+    {
+      "name": "./Haters",
+      "csv": "Haters.csv",
+      "color": GREEN
+    },
+  ]
+
+  var fill = new SimpleFillSymbol("solid", null, GRAY5);
   var popup = new Popup({
     fillSymbol: fill,
     titleInBody: false
@@ -43,44 +66,24 @@ function(
 
   var map = new Map("map", {
     basemap: "gray-vector",
-    center: [-80.8440, 35.9522],
+    center: MAP_CENTER,
     zoom: 5,
     infoWindow: popup
   });
 
-  var loversPopupTemplate = new PopupTemplate ({
-    title: "Lovers",
-    fieldInfos: [
-      { fieldName: "Shop", visible: true, label: "Shop: "},
-      { fieldName: "Address", visible: true, label: "Address: "},
-      { fieldName: "Website", visible: true, label: "Website: "}
-    ]
-  });
+  for (let type of types) {
+    var popupTemplate = new PopupTemplate ({
+      title: type.title,
+      fieldInfos: fields
+    });
 
-  var loversCSV = new CSVLayer("Lovers.csv", {});
-  var purple = new Color([178, 18, 178, 0.8]);
-  var loversMarker = new SimpleMarkerSymbol("solid", 10, null, purple);
-  var loversRenderer = new SimpleRenderer(loversMarker);
-  loversCSV.setRenderer(loversRenderer);
-  loversCSV.setInfoTemplate(loversPopupTemplate);
+    var typeLayer = new CSVLayer(type.csv, {});
+    var marker = new SimpleMarkerSymbol("solid", 10, null, type.color);
+    var renderer = new SimpleRenderer(marker);
+    typeLayer.setRenderer(renderer);
+    typeLayer.setInfoTemplate(popupTemplate);
 
-  map.addLayer(loversCSV);
+    map.addLayer(typeLayer);
+  }
 
-  var hatersPopupTemplate = new PopupTemplate ({
-    title: "Haters",
-    fieldInfos: [
-      { fieldName: "Shop", visible: true, label: "Shop: "},
-      { fieldName: "Address", visible: true, label: "Address: "},
-      { fieldName: "Website", visible: true, label: "Website: "}
-    ]
-  });
-
-  var hatersCSV = new CSVLayer("Haters.csv", {});
-  var green = new Color([62, 178, 0, 0.8]);
-  var hatersMarker = new SimpleMarkerSymbol("solid", 10, null, green);
-  var hatersRenderer = new SimpleRenderer(hatersMarker);
-  hatersCSV.setRenderer(hatersRenderer);
-  hatersCSV.setInfoTemplate(hatersPopupTemplate);
-
-  map.addLayer(hatersCSV);
 });
